@@ -29,14 +29,13 @@
         padding: 2rem;
         margin: auto;
         background-color: aquamarine;
-        width: min-content;
+        /* width: min-content; */
         transition: width 1s;
         border-radius: 50%;
         color: azure;
     }
     
     .circle {
-        /* background-color: #7fcce3; */
         animation-name: puyopuyo;
         animation-duration: 5.0s;
         animation-timing-function: ease;

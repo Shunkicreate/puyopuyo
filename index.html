@@ -12,6 +12,10 @@
         </div>
     </div>
     <script>
+        const convertRemToPx = (rem) => {
+            var fontSize = getComputedStyle(document.documentElement).fontSize;
+            return rem * parseFloat(fontSize);
+        }
         console.log("hehehe")
         const textInput = document.getElementById("textInput")
         let inputting = false
@@ -21,6 +25,7 @@
             result.classList.add('circle')
             result.innerText = event.target.value
             result.style.color = 'red'
+            result.style.width = String(convertRemToPx(event.target.value.length + 1) /  2) + "px"
             if (inputting === false) {
                 inputting = true
                 const intervalID = setInterval(() => {
