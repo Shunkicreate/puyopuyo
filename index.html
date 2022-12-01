@@ -12,30 +12,29 @@
         </div>
     </div>
     <script>
-        const convertRemToPx = (rem) => {
-            var fontSize = getComputedStyle(document.documentElement).fontSize;
-            return rem * parseFloat(fontSize);
-        }
         console.log("hehehe")
         const textInput = document.getElementById("textInput")
         let inputting = false
         textInput.addEventListener('input', (event) => {
             const lastInputTime = Date.now()
             const result = document.getElementById('result')
+            const convertRemToPx = (rem, elem) => {
+                var fontSize = getComputedStyle(elem).fontSize;
+                return rem * parseFloat(fontSize);
+            }
             result.classList.add('circle')
             result.innerText = event.target.value
-            result.style.color = 'red'
-            result.style.width = String(convertRemToPx(event.target.value.length + 1) /  2) + "px"
+            result.style.width = String(convertRemToPx(event.target.value.length + 1, result) / 2) + "px"
             if (inputting === false) {
                 inputting = true
                 const intervalID = setInterval(() => {
                     console.log("aa")
-                    if (Date.now() - lastInputTime > 4) {
+                    if (Date.now() - lastInputTime > 200) {
                         result.classList.remove('circle')
                         clearInterval(intervalID)
                         inputting = false
                     }
-                }, 1000)
+                }, 200)
             }
         })
     </script>
